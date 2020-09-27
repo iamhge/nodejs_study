@@ -4,15 +4,18 @@
 ### 실습 환경
 Ubuntu 20.04  
 node.js v12.18.4  
-npm v6.14.8
-express
+npm v6.14.8  
+express  
+ejs  
 
 # Contents
 
 <!--ts-->
 
 - [1. Hello NodeJS](#hello-nodejs)
-
+- [2. 프로젝트 생성하기](#프로젝트-생성하기)
+- [3. Hello Express](#hello-express)
+- [4. ejs로 프로젝트 생성](#ejs로-프로젝트-생성)
 <!--te-->
 
 # Hello NodeJS
@@ -45,12 +48,14 @@ node index.js
 
 
 # 프로젝트 생성하기
-프로젝트 생성할 폴더(`/nodejs_study/src/`)에서 다음 명령어 입력. 입력 후 `/nodejs_study/src/gocoder` DIR가 생성된다.
+프로젝트 생성할 폴더(`/nodejs_study/src/`)에서 다음 명령어 입력.  
+입력 후 `/nodejs_study/src/gocoder` DIR가 생성된다.
 ```shell
 express gocoder
 ```
 
-`/nodejs_study/src/gocoder`에서 다음 명령어를 통해 의존성 모듈 모두 설치. 설치 후 `/nodejs_study/src/gocoder/node_modules` DIR가 생성된다.
+`/nodejs_study/src/gocoder`에서 다음 명령어를 통해 의존성 모듈 모두 설치.  
+설치 후 `/nodejs_study/src/gocoder/node_modules` DIR가 생성된다.
 ```shell
 npm install
 ```
@@ -78,3 +83,19 @@ node ./bin/www
 var port = normalizePort(process.env.PORT || '3000');
 ```
 
+# ejs로 프로젝트 생성
+
+위의 과정대로 수행시, `/src/gocoder/views/` DIR 내의 파일들이 jade 문법으로 작성되어있음을 볼 수 있다.  
+협업에서는 ejs가 유용하므로, 지금까지 실습한 gocoder를 삭제하고, `/src/`에서 다음 명령어를 이용하여 ejs express 프로젝트를 생성한다.  
+```shell
+express --view=ejs gocoder
+```
++) --view=ejs : ejs 뷰 엔진을 사용하겠다는 의미.  
+
+프로젝트 생성 후, 다시 `/nodejs_study/src/gocoder`에서 다음 명령어를 통해 의존성 모듈 모두 설치.  
+설치 후 `/nodejs_study/src/gocoder/node_modules` DIR가 생성된다.  
+```shell
+npm install
+```
+
+#
