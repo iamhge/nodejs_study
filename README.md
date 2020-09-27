@@ -114,3 +114,86 @@ npm install nodemon -g
 ```shell
 nodemon npm start
 ```
+
+# 미들웨어(middleware)
+## 미들웨어란?
+익스프레스는 미들웨어로 구성된 프레임 워크라고 할 수 있다.  
+클라이언트 요청을 처리하여 응답하는 과정을 말한다.  
+대표적인 경우 : 요청 객체, 응답 객체  
+미들웨어를 실행하는 next함수로 이루어져 있다.  
+```javascript
+var express = require('express');
+var app = express();
+
+/*
+    get        : 미들웨어 함수가 적용되는 HTTP 메소드
+    '/'        : 미들웨어 함수가 적용되는 경로(route)
+    function() : 미들웨어 함수.
+    req        : 미들웨어 함수에 대한 HTTP 요청 인수
+    res        : 미들웨어 함수에 대한 HTTP 응답 인수
+    next       : 미들웨어 함수에 대한 콜백 인수
+*/
+app.get('/', function(req, res, next) {
+    next();
+})
+
+app.listen(3003);
+```
+
+## 라우트
+라우트 이후에 원하는 URI로 경로를 받을 수 있다.  
+응용 프로그램의 사용자의 URI의 요청에 응답하는 방법을 라우팅이라한다.  
+요청에 대한 컨트롤을 담당한다.  
+```javascript
+router.get('/list/:page',
+```
+
+* 접속 : http://사이트주소/gocoder  
+```javascript
+router.get('/gocoder', function(req, res){});
+```
+
+* 접속 : http://사이트주소/gocoder/itexpress
+```javascript
+router.get('/gocoder/itexpress', function(req, res){});
+```
+
+* 접속 : http://사이트주소/gocoder/itexpress/*(모든데이터)/
+```javascript
+router.get('/gocoder/itexpress/:id/', function(req, res){});
+```
+
+* 접속 : http://사이트주소/gocoder/itexpress/*(모든데이터)/*(모든데이터)
+```javascript
+router.get('/gocoder/itexpress/:id/:cate/', function(req, res){});
+```
+
+## req (요청 객체)
+```javascript
+function(req, res {}); // 여기에서 req
+```
+
+* 자주 사용하는 req 객체
+```javascript
+req.params  // 객체는 파라미터에 데이터를 가져온다.
+req.query   // 쿼리스트링 파라미터에 전부를 가져온다.
+req.headers // header 값 을 가져온다.
+req.cookies // 쿠키값을 확인한다.
+req.ip      // 프론트 아이피를 가져온다.
+req.protoco // 프로토콜 http? https? 인지 가져온다.
+req.url     // 전체 URI 정보를 가져온다.
+```
+
+## rew (응답 객체)
+```javascript
+function(req, res {}); // 여기에서 res
+```
+
+* 자주 사용하는 res 객체
+```javascript
+res.send     // 클라이언트에 응답을 보낼 수 있다.
+res.json     // 클라이언트에 자동으로 json을 만들어준다.
+res.jsonp    // 클라이언트에 자동으로 jsonp를 만들어준다.
+res.redirect // 리다이렉트, 페이지를 이동시킨다.
+res.ip       // 프론트 아이피를 가져온다.
+```
