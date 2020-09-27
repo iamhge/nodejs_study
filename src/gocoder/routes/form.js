@@ -14,5 +14,12 @@ router.get('/', function(req, res, next) {
     });
 });
 
+// method를 post로 전송
+// 같은 루트로 접근된다고 하더라도 post인지 get인지에 따라 다르다.
+router.post('/', function(req, res, next) {
+    // 해당 데이터를 json함수가 자동으로 받아온 폼에 데이터를 json 형식으로 변경한다.
+    res.json(req.body);
+});
+
 // module.exports : global 전역으로 해당 라우터를 사용하게 해줌.
 module.exports = router;
