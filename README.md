@@ -36,7 +36,7 @@ node index.js
 ```
 
 인터넷 주소창에 `http://localhost:8000` 입력시 결과  
-![hello_world](https://user-images.githubusercontent.com/59961690/94358469-27795400-00dc-11eb-865a-3fd23b5184bc.png)
+![hello_world](https://user-images.githubusercontent.com/59961690/94358469-27795400-00dc-11eb-865a-3fd23b5184bc.png)  
 
 
 # 프로젝트 생성하기
@@ -49,3 +49,27 @@ express gocoder
 ```shell
 npm install
 ```
+
+# Hello Express
+## Express 서버 실행
+`/src/gocoder/`DIR에서 다음 명령어를 통해 서버를 실행.  
+```shell
+node ./bin/www
+```
+
+웹브라우저에서 `http://localhost:3000/` 주소로 접속시 결과  
+![hello_express](https://user-images.githubusercontent.com/59961690/94359036-af149200-00df-11eb-86aa-6f1ee66b8eba.png)  
+
++) express는 기본 3000 port 사용.   
+
+접속할 때마다 커맨드창에 log가 찍히는 것 확인 가능.  
+![access_log](https://user-images.githubusercontent.com/59961690/94359089-f733b480-00df-11eb-83ad-939b843877c8.png)  
+
+
+## 기본 포트 변경
+`/src/gocoder/bin/www`파일의 다음 내용에서 3000을 원하는 port로 수정한다.  
+수정 후, 해당 포트로 변경하여 웹브라우저에서 접속이 가능하다.  
+```javascript
+var port = normalizePort(process.env.PORT || '3000');
+```
+
