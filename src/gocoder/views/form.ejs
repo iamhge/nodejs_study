@@ -5,11 +5,37 @@
 </head>
 <body>
     <h1>name</h1>
-    <!-- <%=%>안에 변수를 넣으면 자동으로 프론트에 변수 데이터를 노출시킨다. -->
+    <!-- < %=%>안에 변수를 넣으면 자동으로 프론트에 변수 데이터를 노출시킨다. -->
     <p> <%= name %></p>
     <h1>github</h1>
     <p> <%= github %></p>
     <h1>lab</h1>
     <p> <%= lab %></p>
+
+    <!-- 
+        action="/form" : router로 전송 
+        method="post" : get은 이미 router에서 사용중.
+    -->
+    <form id="Form" action="/form" method="post">
+        <table width='400'>
+            <tr>
+                <th>name</th>
+                <td><input type="text" name="name" id="name" size="10" maxLength="10"></td>
+            </tr>
+            <tr>
+                <th>github</th>
+                <td><input type="text" name="github" id="github" size="20" maxLength="30"></td>
+            </tr>
+            <tr>
+                <th>lab</th>
+                <td><input type="text" name="lab" id="lab" size="20" maxLength="30"></td>
+            </tr>
+            <tr>
+                <th>send</th>
+                <!-- submit : submit 버튼으로 자동으로 해당 form전송 -->
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
