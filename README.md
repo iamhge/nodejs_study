@@ -98,4 +98,19 @@ express --view=ejs gocoder
 npm install
 ```
 
-#
+# Nodemon
+## Nodemon 이란?
+Node.js개발 시에 꼭 필요한 모듈.
+역할 : 파일들을 모니터링하다 소스 수정 시 자동으로 서버를 재시작하여 곧바로 서버에 반영을 할 수 있는 도구.  
+
+## Nodemon 설치
+설치 명령어
+```shell
+npm install nodemon -g
+```
+
+## 커맨드 라인에서 Nodemon 실행 방법
+수동으로 nodemon으로 서버를 시작할 수 있다.  
+```shell
+nodemon npm start
+```
